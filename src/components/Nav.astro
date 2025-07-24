@@ -1,0 +1,82 @@
+---
+import Icon from './Icon.astro';
+---
+
+<nav class="nav">
+    <ul>
+        <li>
+            <a
+            href="https://github.com/inamin-kana"
+            class="nav__link"
+            target="_blank" rel="noopener noreferrer"
+            >
+                <Icon icon="github-logo" size="1.5em"/>
+            </a>
+        </li>
+        <li>
+            <a
+            href="www.linkedin.com/in/kanako-inamine-797757303"
+            class="nav__link"
+            target="_blank" rel="noopener noreferrer"
+            >
+                <Icon icon="linkedin-logo" size="1.5em"/>
+            </a>
+        </li>
+        <li>
+            <a
+            href="http://"
+            class="nav__link"
+            target="_blank" rel="noopener noreferrer"
+            >
+                <Icon icon="mail" size="1.4em"/>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<style lang="scss">
+    @use '../styles/common/vars.scss' as *;  
+	@use '../styles/common/mixin.scss' as *;
+
+    .nav {
+        ul {
+            display: flex;
+            align-items: center;
+            @include mq-pc {
+                gap: 0 1.5rem;
+            }
+            li {
+
+            }
+        }
+
+        .nav__link {
+            text-decoration: none;
+            position: relative;
+            z-index: 1;
+            &::after {
+                content: "";
+                position: absolute;
+                width: calc(100% + var(--space-16));
+                height: calc(100% + var(--space-16));
+                border-radius: 50%;
+                background-color: var(--link);
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: -.5rem;
+                margin: auto;
+                z-index: -1;
+                opacity: 0;
+                transition: opacity .25s;
+            }
+            
+            &:hover {
+                &::after {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+</style>
+

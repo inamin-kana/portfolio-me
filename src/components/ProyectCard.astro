@@ -1,0 +1,140 @@
+---
+---
+
+<div class="card">
+    <a 
+    href="/"
+    class="card__link"
+    >
+        <div class="card__body">
+            <!-- <span class="card__lagel">Real project</span> -->
+            <h3 class="card__title">Ticket base ...</h3>
+            <ul class="card__tagList">
+                <li>React</li>
+                <li>Node.js</li>
+            </ul>
+        </div>
+        <div class="card__thumb">
+            <img 
+            src="/public/assets/card/thumb01.jpg"
+            srcset="/public/assets/card/thumb01.jpg 1x,/public/assets/card/thumb01@2x.jpg 2x"
+            alt=""
+            >
+        </div>
+    </a>
+</div>
+<div class="card">
+    <a 
+    href="/"
+    class="card__link"
+    >
+        <div class="card__body">
+            <h3 class="card__title">Ticket base ...</h3>
+            <ul class="card__tagList">
+                <li>React</li>
+                <li>Node.js</li>
+            </ul>
+        </div>
+        <div class="card__thumb">
+            <img 
+            src="https://placehold.jp/150x150.png"
+            srcset="https://placehold.jp/150x150.png"
+            alt=""
+            >
+        </div>
+    </a>
+</div>
+
+
+<style lang="scss">
+    @use '../styles/common/vars.scss' as *;  
+	@use '../styles/common/mixin.scss' as *;
+
+
+    .card {
+        position: relative;
+        z-index: 1;
+        @include mq-pc {
+            width: calc(100% - #{var(--space-80)} / 2);
+        }
+        &::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: var(--main);
+            border-radius: 2rem;
+            position: absolute;
+            top: var(--space-4);
+            left: var(--space-4);
+            z-index: -1;
+        }
+    }
+    .card__link {
+        height: 100%;
+        background-color: #fff;
+        display: block;
+        overflow: hidden;
+        border-radius: 2rem;
+        border: 2px solid var(--main);
+        display: flex;
+        flex-direction: column;
+        @include mq-pc {
+            padding: 24px;
+        }
+    }
+    .card__body {
+        @include mq-pc {
+            padding: var(--space-16) var(--space-16) 0;
+        }
+    }
+    // .card__lagel {
+    //     background-color: var(--button);
+    //     width: 200px;
+    //     height: 5rem;
+    //     position: absolute;
+    //     top: 0;
+    //     right: 0;
+    //     clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    //     // clip-path: polygon(20% 0%, 100% 0, 100% 6%, 31% 6%);
+    //     z-index: 1;
+    // }
+    .card__title {
+        @include mq-pc {
+            font-size: var(--text-lg);
+        }
+    }
+    .card__tagList {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-16);
+        margin-top: var(--space-24);
+        @include mq-pc {
+        }
+
+        li {
+            color: var(--main);
+            line-height: 1;
+            font-weight: 500;
+            border: 2px solid var(--sub);
+            border-radius: 2rem;
+            background-color: #ECF5FF;
+            padding: var(--space-6) var(--space-16);
+            @include mq-pc {
+                font-size: var(--text-base);
+            }
+        }
+    }
+    .card__thumb {
+        order: -1;
+        width: 100%;
+        @include mq-pc {
+            height: 240px;
+        }
+        
+        img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 1.5rem;
+        }
+    }
+</style>

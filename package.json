@@ -9,10 +9,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.12.2"
+    "@tailwindcss/vite": "^4.1.11",
+    "astro": "^5.12.2",
+    "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
     "@types/node": "^24.1.0",
+    "sass": "^1.65.1",
     "typescript": "^5.8.3"
+  },
+  "volta": {
+    "node": "23.10.0"
   }
 }

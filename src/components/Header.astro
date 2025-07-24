@@ -1,0 +1,52 @@
+---
+import Nav from '../components/Nav.astro'
+---
+
+<header class="header">
+    <div class="header__inner">
+        <a href="/" class="header__logo">
+            <span class="header__logoIcon">
+                <img 
+                src="../../public/assets/icon_me.png"
+                alt=""
+                >
+            </span>
+            <span class="header__logoName">Kanako Inamine</span>
+        </a>
+
+        <Nav />
+    </div>
+</header>
+
+<style lang="scss">
+    @use '../styles/common/vars.scss' as *;  
+	@use '../styles/common/mixin.scss' as *;
+
+    .header {
+        background-color: #fff;
+        border-bottom: solid 2px var(--main);
+    }
+    .header__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        @include mq-pc {
+            padding: var(--space-16) var(--space-40);
+        }
+    }
+    .header__logo {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0 var(--space-8);
+    }
+    .header__logoIcon {
+        display: inline-block;
+        width: 2.5rem;
+    }
+    .header__logoName {
+        font-size: var(--text-lg);
+        font-family: var(--sub-font);
+        font-weight: 500;
+    }
+</style>
