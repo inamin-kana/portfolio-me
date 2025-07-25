@@ -1,0 +1,60 @@
+---
+
+interface Props {
+    class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<a id="mailto-link" href={`mailto:`} class={className}>
+    <slot />
+</a>
+
+<script type="text/javascript" is:inline>
+    function decryptMail(codeArray) {
+        return codeArray.map(c => String.fromCharCode(c + 1)).join('');
+    }
+
+    const mailCharCodes = [
+        106, 96, 109, 96, 106, 110, 45, 104, 109, 96, 108, 104, 109, 100,
+        45, 56, 53, 63, 102, 108, 96, 104, 107, 45, 98, 110, 108,
+        62, 114, 116, 97, 105, 100, 98, 115, 60
+    ];
+
+    const address = "mailto:" + decryptMail(mailCharCodes);
+    const link = document.getElementById("mailto-link");
+    if (link) link.setAttribute("href", address);
+</script>
+
+<noscript>
+    <p>This email link requires JavaScript. Please enable it to view the link.</p>
+</noscript>
+
+
+<style lang="scss">
+    @use '../styles/common/vars.scss' as *;  
+	@use '../styles/common/mixin.scss' as *;
+
+    .buttonA {
+        display: inline-block;
+        text-decoration: none;
+        line-height: 1;
+        background-color: var(--yellow);
+        padding: var(--space-24) var(--space-40);
+        box-shadow: 4px 4px 0px 0px var(--main);
+        -webkit-box-shadow: 4px 4px 0px 0px var(--main);
+        -moz-box-shadow: 4px 4px 0px 0px var(--main);
+        position: relative;
+        top: 0;
+        left: 0;
+        transition: transform .25s, box-shadow .25s;
+        
+        @include mq-pc {
+            &:hover {
+                transform: translateY(4px) translateX(4px);
+                box-shadow: 0 0;
+            }
+        }
+    }
+</style>

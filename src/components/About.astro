@@ -3,20 +3,31 @@
 
 <div class="about__contents">
     <h3 class="titleB">Background</h3>
-    <p class="">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's </p>
-    <p class="">standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially </p>
-    <p class="">unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
+    <p class="">Born and raised in Okinawa Japan, currently living in Barcelona.</p>
+    <p class=""> </p>
+    <p class=""></p>
     <h3 class="titleB">Experience</h3>
     <ul class="ulList">
-        <li>FrontEnd Developer | Styx Intelligence | Vancouver | 10/2024 - 12/2024</li>
-        <li>FrontEnd Developer | Styx Intelligence | Vancouver | 10/2024 - 12/2024</li>
-        <li>FrontEnd Developer | Styx Intelligence | Vancouver | 10/2024 - 12/2024</li>
+        <li>FrontEnd Developer & Web Coder | neu inc | Osaka, Japan | 06/2021 - 06/2025</li>
+        <li>Data Analysis & Visualization (Internship) | Analytics 4 People | Barcelona | 06/2024 - 11/2024</li>
+        <li>Japanese Language Instructor | EHLE japanese language school | Osaka, Japan | 04/2019 - 03/2021</li>
     </ul>
     <h3 class="titleB">Education</h3>
     <ul class="ulList">
-        <li>Bachelor Degree of Informatics and Sciences, Nagoya University, Japan (2019)</li>
-        <li>FrontEnd Developer | Styx Intelligence | Vancouver | 10/2024 - 12/2024</li>
+        <li>Gurado Superior of DAM (Multi-platform Applications Development) | iFP L'Hospitalet | Barcelona | 09/2023 - 07/2025</li>
+        <li>Bachelor Degree of Hispanic Philology, Kansai Gaidai University, Japan (2019)</li>
     </ul>
     <h3 class="titleB">Skills</h3>
-    <p class="">HTML | CSS | </p>
+    <p class="">JavaScript / TypeScript | HTML | CSS | SCSS | React | Next.js | Node.js | My SQL | Tailwind CSS | Figma | Adobe XD</p>
 </div>
+
+<style lang="scss">
+    @use '../styles/common/vars.scss' as *;  
+	@use '../styles/common/mixin.scss' as *;
+    
+    .about__contents {
+        @include mq-pc {
+            font-size: var(--text-lg);
+        }
+    }
+</style>

@@ -1,5 +1,7 @@
 ---
 import Icon from './Icon.astro';
+import ContactAction from '../components/ContactAction.astro';
+
 ---
 
 <nav class="nav">
@@ -15,7 +17,7 @@ import Icon from './Icon.astro';
         </li>
         <li>
             <a
-            href="www.linkedin.com/in/kanako-inamine-797757303"
+            href="https://www.linkedin.com/in/kanako-inamine-797757303/"
             class="nav__link"
             target="_blank" rel="noopener noreferrer"
             >
@@ -23,13 +25,9 @@ import Icon from './Icon.astro';
             </a>
         </li>
         <li>
-            <a
-            href="http://"
-            class="nav__link"
-            target="_blank" rel="noopener noreferrer"
-            >
+            <ContactAction class="nav__link">
                 <Icon icon="mail" size="1.4em"/>
-            </a>
+            </ContactAction>
         </li>
     </ul>
 </nav>
@@ -46,35 +44,8 @@ import Icon from './Icon.astro';
                 gap: 0 1.5rem;
             }
             li {
-
-            }
-        }
-
-        .nav__link {
-            text-decoration: none;
-            position: relative;
-            z-index: 1;
-            &::after {
-                content: "";
-                position: absolute;
-                width: calc(100% + var(--space-16));
-                height: calc(100% + var(--space-16));
-                border-radius: 50%;
-                background-color: var(--link);
-                top: 0;
-                bottom: 0;
-                right: 0;
-                left: -.5rem;
-                margin: auto;
-                z-index: -1;
-                opacity: 0;
-                transition: opacity .25s;
-            }
-            
-            &:hover {
-                &::after {
-                    opacity: 1;
-                }
+                height: fit-content;
+                display: contents;
             }
         }
     }

@@ -3,16 +3,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import ProyectCard from '../components/ProyectCard.astro';
-
+import ContactAction from '../components/ContactAction.astro';
 ---
 
 <BaseLayout>
-	<div class="pt-28">
-		<main class="mx-auto xl:max-w-7xl">
+	<div class="pt-30">
+		<main class="mx-auto xl:max-w-6xl">
 			<div class="wrapContents relative">
 				<Hero />
 
-				<div class="about my-26">
+				<div class="about my-35">
 					<div class="about__innner px-10">
 						<h2 class="titleA">About me</h2>
 						<About />
@@ -30,6 +30,7 @@ import ProyectCard from '../components/ProyectCard.astro';
 				
 				<div class="contact my-26">
 					<h2 class="titleA -noUnderLine">Feel free to contact me!</h2>
+					<ContactAction class="buttonA">Send me an email</ContactAction>
 				</div>
 			</div>
 		</main>
@@ -72,6 +73,13 @@ import ProyectCard from '../components/ProyectCard.astro';
 			@include mq-sp {
 				flex-direction: row;
 			}
+		}
+	}
+	.contact {
+		@include mq-pc {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
 		}
 	}
 
