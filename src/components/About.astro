@@ -69,7 +69,6 @@ import Icon from './Icon.astro';
             <span class="techList__name">Figma</span>
         </li>
     </ul>
-    <!-- <p class="">JavaScript / TypeScript | HTML | CSS | SCSS | React | Next.js | Node.js | My SQL | Tailwind CSS | Figma | Adobe XD</p> -->
 </div>
 
 <style lang="scss">
@@ -79,6 +78,9 @@ import Icon from './Icon.astro';
     .about__contents {
         @include mq-pc {
             font-size: var(--text-lg);
+        }
+        @include mq-sp {
+            font-size: var(--text-md);
         }
     }
     .techList {
@@ -90,12 +92,13 @@ import Icon from './Icon.astro';
         li {
             display: flex;
             align-items: center;
-            // width: fit-content;
             gap: 0 var(--space-8);
             border: 1px solid var(--gray);
             border-radius: 10px;
             padding: var(--space-16);
-            // background-color: #fff;
+            @include mq-sp {
+                padding: var(--space-8) var(--space-16);
+            }
 
             .techList__name {
                 line-height: 1;

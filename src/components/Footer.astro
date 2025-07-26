@@ -42,8 +42,14 @@
         @include mq-pc {
             padding: var(--space-24) var(--space-40);
         }
+        @include mq-sp {
+            padding:  var(--space-16);
+        }
     }
     .footer__copy {
+        @include mq-sp {
+            font-size: var(--text-sm);
+        }
     }
     .footer__list {
         display: flex;
@@ -70,9 +76,11 @@
             transition: opacity .25s;
         }
         
-        &:hover {
-            &::after{
-                opacity: 1;
+        @include mq-pc {
+            &:hover {
+                &::after{
+                    opacity: 1;
+                }
             }
         }
     }

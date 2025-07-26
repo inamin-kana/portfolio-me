@@ -32,10 +32,8 @@ import Footer from '../components/Footer.astro';
 	.body {
 		color: var(--main);
 		background-color: var(--bg);
+		font-size: var(--text-base);
 		font-family: var(--base-font);
-		@include mq-pc {
-			font-size: var(--text-base);
-		}
 	}
 
 	img {
@@ -45,14 +43,16 @@ import Footer from '../components/Footer.astro';
 
 	/* Title */
 	:global(.titleA) {
-		// color: var(--green);
-		line-height: 1;
+		// line-height: 1.3;
 		font-weight: 500;
 		font-family: var(--sub-font);
 		padding-bottom: var(--space-16);
 		position: relative;
 		@include mq-pc {
 			font-size: var(--text-3xl);
+		}
+		@include mq-sp {
+			font-size: var(--text-2xl);
 		}
 		&::after {
 			content: "";
@@ -73,11 +73,17 @@ import Footer from '../components/Footer.astro';
 		@include mq-pc {
 			margin-top: var(--space-64);
 		}
+		@include mq-sp {
+			margin-top: var(--space-40);
+		}
 	}
 	
 	:global(.titleA + .buttonA) {
 		@include mq-pc {
 			margin-top: 0;
+		}
+		@include mq-sp {
+			margin-top: var(--space-32);
 		}
 	}
 
@@ -87,33 +93,40 @@ import Footer from '../components/Footer.astro';
 		@include mq-pc {
 			font-size: var(--text-xl);
 		}
+		@include mq-sp {
+			font-size: var(--text-lg);
+		}
 	}
 	:global(* + .titleB) {
 		@include mq-pc {
 			margin-top: var(--space-40);
 		}
+		@include mq-sp {
+			margin-top: var(--space-32);
+		}
 	}
 	:global(.titleB + *) {
-		@include mq-pc {
-			margin-top: var(--space-16);
-		}
+		margin-top: var(--space-16);
 	}
 
 	/* List */
 	:global(.ulList > li) {
-		display: flex;
-		align-items: center;
-		gap: 0 var(--space-8);
+		position: relative;
+		padding-left: 1.1em;
 	}
 	:global(.ulList > li:not(:first-of-type)) {
 		margin-top: var(--space-8);
 	}
 	:global(.ulList > li::before) {
 		content: "";
+		position: absolute;
+		flex-shrink: 0;
 		width: .5rem;
 		height: .5rem;
 		background-color: var(--main);
 		border-radius: 50%;
+		top: .5em;
+		left: 0;
 	}
 
 	/* Nav */
@@ -139,9 +152,11 @@ import Footer from '../components/Footer.astro';
 			transition: opacity .25s;
 		}
 		
-		&:hover {
-			&::after {
+		@include mq-pc {
+			&:hover {
+				&::after {
 				opacity: 1;
+				}
 			}
 		}
 	}

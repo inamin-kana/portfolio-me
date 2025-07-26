@@ -18,7 +18,7 @@ import Icon from './Icon.astro';
             <ul class="card__tagList">
                 {project.tags.map(tag => (
                 <li>
-                    <Icon icon={tag as keyof typeof import('./IconPath').iconPaths} size="1.3em" />
+                    <Icon icon={tag as keyof typeof import('./IconPath').iconPaths} size="1.2em" />
                     {tag}
                 </li>
                 ))}
@@ -39,7 +39,7 @@ import Icon from './Icon.astro';
             <ul class="card__tagList">
                 {project.tags.map(tag => (
                 <li>
-                    <Icon icon={tag as keyof typeof import('./IconPath').iconPaths} size="1.3em" />
+                    <Icon icon={tag as keyof typeof import('./IconPath').iconPaths} size="1.2em" />
                     {tag}
                 </li>
                 ))}
@@ -71,6 +71,9 @@ import Icon from './Icon.astro';
         @include mq-pc {
             width: calc((100% - var(--space-80)) /2);
         }
+        @include mq-sp {
+            width: 100%;
+        }
     }
     .card__link {
         height: 100%;
@@ -85,11 +88,14 @@ import Icon from './Icon.astro';
         -webkit-box-shadow: 4px 4px 0px 0px var(--main);
         -moz-box-shadow: 4px 4px 0px 0px var(--main);
         @include mq-pc {
-            padding: 24px;
+            padding: var(--space-24);
+        }
+        @include mq-sp {
+            padding: var(--space-16);
         }
 
-        &:hover {
-            @include mq-pc {
+        @include mq-pc {
+            &:hover {
                 .card__thumb img {
                     transform: scale(1.05);
                 }
@@ -97,9 +103,7 @@ import Icon from './Icon.astro';
         }
     }
     .card__body {
-        @include mq-pc {
-            padding: var(--space-16) var(--space-16) 0;
-        }
+        padding: var(--space-16) var(--space-16) 0;
     }
     .card__state {
         display: flex;
@@ -121,18 +125,14 @@ import Icon from './Icon.astro';
     }
     .card__title {
         font-weight: 500;
-        @include mq-pc {
-            font-size: var(--text-lg);
-            margin-top: var(--space-16);
-        }
+        font-size: var(--text-lg);
+        margin-top: var(--space-16);
     }
     .card__tagList {
         display: flex;
         flex-wrap: wrap;
         gap: var(--space-8);
         margin-top: var(--space-24);
-        @include mq-pc {
-        }
 
         li {
             color: var(--main);
@@ -143,13 +143,13 @@ import Icon from './Icon.astro';
             // background-color: #ECF5FF;
             background-color: #F8FBFF;
             // background-color: var(--gray);
-            padding: var(--space-6) var(--space-8);
+            padding: var(--space-6) var(--space-16);
             display: flex;
             align-items: center;
             gap: 0 var(--space-6);
-            @include mq-pc {
-                font-size: var(--text-base);
-            }
+            // @include mq-pc {
+            //     font-size: var(--text-base);
+            // }
         }
     }
     .card__thumb {
@@ -160,34 +160,53 @@ import Icon from './Icon.astro';
         @include mq-pc {
             height: 210px;
         }
+        @include mq-sp {
+            height: 170px;
+        }
         
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            
             transition: transform .25s;
         }
     }
 
     /* modal */
 	:global(.ac-modal) {
-        margin: auto;
-        width: var(--ac-modal-width-2xl) !important;
+        @include mq-pc {
+            margin: auto;
+            width: var(--ac-modal-width-2xl) !important;
+        }
 	}
     :global(.ac-modal-body) {
-        padding:  var(--space-40) var(--space-40) var(--space-8) !important;
+        @include mq-pc {
+            padding:  var(--space-40) var(--space-40) var(--space-8) !important;
+        }
+        @include mq-sp {
+            padding:  var(--space-40) var(--space-24) var(--space-16) !important;
+        }
     }
     :global(.ac-modal-body .modal__img) {
-        width: calc(100% - var(--space-80));
         border-radius: 1rem;
         overflow: hidden;
         margin: 0 auto;
+        @include mq-pc {
+            width: calc(100% - var(--space-80));
+        }
+        @include mq-sp {
+            width: 100%;
+        }
     }
     :global(.ac-modal-body .modal__title) {
-        font-weight: 500;
-        font-size: var(--text-xl);
+        font-weight: 600;
         margin-top: var(--space-24);
+        @include mq-pc {
+            font-size: var(--text-xl);
+        }
+        @include mq-sp {
+            font-size: var(--text-lg);
+        }
     }
     :global(.ac-modal-body .modal__text) {
         margin-top: var(--space-16);
@@ -199,6 +218,11 @@ import Icon from './Icon.astro';
         display: flex;
         align-items: center;
         justify-content: flex-end;
-        gap: 0 var(--space-16);
+        @include mq-pc {
+            gap: 0 var(--space-16);
+        }
+        @include mq-sp {
+            gap: 0 var(--space-24);
+        }
     }
 </style>
