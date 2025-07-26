@@ -21,7 +21,7 @@ import ContactAction from '../components/ContactAction.astro';
 				
 				<div class="projects py-26">
 					<div class="projects__inner px-10">
-						<h2 class="titleA">Proyects</h2>
+						<h2 class="titleA">Projects</h2>
 						<div class="cardWrap">
 							<ProyectCard />
 						</div>
@@ -64,6 +64,7 @@ import ContactAction from '../components/ContactAction.astro';
 		}
 		.cardWrap {
 			display: flex;
+			flex-wrap: wrap;
 			align-items: stretch;
 			
 			@include mq-pc {

@@ -1,53 +1,64 @@
 ---
+import { projectData } from './projectData';
+import { Modal, ModalBody, ModalFooter } from 'free-astro-components'
+import Icon from './Icon.astro';
+
 ---
 
-<div class="card">
-    <a 
-    href="/"
-    class="card__link"
-    >
-        <div class="card__body">
-            <span class="card__state -finished">Finished</span>
-            <h3 class="card__title">Ticket base ...</h3>
+{projectData.map((project) => (
+    <div class="card">
+        <a 
+            href="javascript:void(0)"
+            class="card__link"
+            data-modal-trigger={project.id}
+        >
+            <div class="card__body">
+            <span class={`card__state -${project.state}`}>{project.state === 'finished' ? 'Finished' : 'In develop'}</span>
+            <h3 class="card__title">{project.title}</h3>
             <ul class="card__tagList">
-                <li>React</li>
-                <li>Node.js</li>
+                {project.tags.map(tag => (
+                <li>
+                    <Icon icon={tag as keyof typeof import('./IconPath').iconPaths} size="1.3em" />
+                    {tag}
+                </li>
+                ))}
             </ul>
-        </div>
-        <div class="card__thumb">
-            <img 
-            src="/public/assets/card/thumb01.jpg"
-            srcset="/public/assets/card/thumb01.jpg 1x,/public/assets/card/thumb01@2x.jpg 2x"
-            alt=""
-            >
-        </div>
-    </a>
-</div>
-<div class="card">
-    <a 
-    href="/"
-    class="card__link"
-    >
-        <div class="card__body">
-            <span class="card__state -develop">In develop</span>
-            <h3 class="card__title">Ticket base ...</h3>
+            </div>
+            <div class="card__thumb">
+            <img src={project.image.src} srcset={project.image.srcset} alt="" />
+            </div>
+        </a>
+    
+        <Modal id={project.id} class="modal">
+            <ModalBody>
+            <div class="modal__img">
+                <img src={project.image.src} srcset={project.image.srcset} alt="" />
+            </div>
+            <h4 class="modal__title">{project.title}</h4>
+            <p class="modal__text">{project.description}</p>
             <ul class="card__tagList">
-                <li>React</li>
-                <li>Node.js</li>
+                {project.tags.map(tag => (
+                <li>
+                    <Icon icon={tag as keyof typeof import('./IconPath').iconPaths} size="1.3em" />
+                    {tag}
+                </li>
+                ))}
             </ul>
-        </div>
-        <div class="card__thumb">
-            <img 
-            src="https://placehold.jp/150x150.png"
-            srcset="https://placehold.jp/150x150.png"
-            alt=""
-            >
-        </div>
-    </a>
-</div>
-
-
-
+            </ModalBody>
+            {project.links.length > 0 && (
+            <ModalFooter>
+                <div class="modal__linkList">
+                {project.links.map(link => (
+                    <a href={link.href} target="_blank" rel="noopener noreferrer">
+                    <Icon icon={link.icon as keyof typeof import('./IconPath').iconPaths} size="1.5em" />
+                    </a>
+                ))}
+                </div>
+            </ModalFooter>
+            )}
+        </Modal>
+    </div>
+))}
 
 <style lang="scss">
     @use '../styles/common/vars.scss' as *;  
@@ -58,19 +69,8 @@
         position: relative;
         z-index: 1;
         @include mq-pc {
-            width: calc(100% - #{var(--space-80)} / 2);
+            width: calc((100% - var(--space-80)) /2);
         }
-        // &::after {
-        //     content: "";
-        //     width: 100%;
-        //     height: 100%;
-        //     background-color: var(--main);
-        //     border-radius: 2rem;
-        //     position: absolute;
-        //     top: var(--space-4);
-        //     left: var(--space-4);
-        //     z-index: -1;
-        // }
     }
     .card__link {
         height: 100%;
@@ -104,24 +104,19 @@
     .card__state {
         display: flex;
         align-items: center;
-        // justify-content: flex-end;
 
         &::before {
             content: "";
-            width: .5rem;
-            height: .5rem;
+            width: .6rem;
+            height: .6rem;
             border-radius: 50%;
             margin-right: var(--space-6);
         }
         &.-finished {
-            &::before{
-                background-color: var(--green);
-            }
+            &::before{ background-color: var(--green); }
         }
         &.-develop {
-            &::before {
-                background-color: var(--yellow);
-            }
+            &::before { background-color: var(--yellow); }
         }
     }
     .card__title {
@@ -131,13 +126,10 @@
             margin-top: var(--space-16);
         }
     }
-    // .card__description {
-    //     margin-top: var(--space-8);
-    // }
     .card__tagList {
         display: flex;
         flex-wrap: wrap;
-        gap: var(--space-16);
+        gap: var(--space-8);
         margin-top: var(--space-24);
         @include mq-pc {
         }
@@ -148,8 +140,13 @@
             font-weight: 500;
             border: 2px solid var(--sub);
             border-radius: 2rem;
-            background-color: #ECF5FF;
-            padding: var(--space-6) var(--space-16);
+            // background-color: #ECF5FF;
+            background-color: #F8FBFF;
+            // background-color: var(--gray);
+            padding: var(--space-6) var(--space-8);
+            display: flex;
+            align-items: center;
+            gap: 0 var(--space-6);
             @include mq-pc {
                 font-size: var(--text-base);
             }
@@ -171,5 +168,37 @@
             
             transition: transform .25s;
         }
+    }
+
+    /* modal */
+	:global(.ac-modal) {
+        margin: auto;
+        width: var(--ac-modal-width-2xl) !important;
+	}
+    :global(.ac-modal-body) {
+        padding:  var(--space-40) var(--space-40) var(--space-8) !important;
+    }
+    :global(.ac-modal-body .modal__img) {
+        width: calc(100% - var(--space-80));
+        border-radius: 1rem;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+    :global(.ac-modal-body .modal__title) {
+        font-weight: 500;
+        font-size: var(--text-xl);
+        margin-top: var(--space-24);
+    }
+    :global(.ac-modal-body .modal__text) {
+        margin-top: var(--space-16);
+    }
+    :global(.ac-modal-footer) {
+        padding: 0 var(--space-40) var(--space-40) !important;
+    }
+    :global(.ac-modal-footer .modal__linkList) {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0 var(--space-16);
     }
 </style>
