@@ -35,7 +35,10 @@ import Footer from '../components/Footer.astro';
 		font-size: var(--text-base);
 		font-family: var(--base-font);
 	}
-
+	:global(.body.-menuOpen) {
+		overflow: hidden;
+		height: 100vh;
+	}
 	img {
 		width: 100%;
 		height: auto;
@@ -130,7 +133,7 @@ import Footer from '../components/Footer.astro';
 	}
 
 	/* Nav */
-	:global(.nav__link) {
+	:global(.iconLinkList__link) {
 		display: inline-block;
 		text-decoration: none;
 		position: relative;

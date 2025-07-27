@@ -14,16 +14,16 @@ export const projectData = [
             { href: 'https://project-csf-lp.vercel.app/', icon: 'linkBlank' },
         ]
     },
-    {
-        id: 'modal-02',
-        state: 'develop',
-        title: 'Ticket base ...',
-        description: 'Under development project using React and Node.js.',
-        image: {
-            src: 'https://placehold.jp/150x150.png',
-            srcset: 'https://placehold.jp/150x150.png',
-        },
-        tags: ['react', 'node.js'],
-        links: []
-    } 
+    // {
+    //     id: 'modal-02',
+    //     state: 'develop',
+    //     title: 'Ticket base ...',
+    //     description: 'Under development project using React and Node.js.',
+    //     image: {
+    //         src: 'https://placehold.jp/150x150.png',
+    //         srcset: 'https://placehold.jp/150x150.png',
+    //     },
+    //     tags: ['Next.js'],
+    //     links: []
+    // } 
 ];

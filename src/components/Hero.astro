@@ -26,6 +26,7 @@
             padding-inline: 3.5rem;
             align-items: center;
             gap: 3.75rem;
+            margin: 0 -24px;
         }
     }
     .hero__title {
@@ -54,14 +55,12 @@
         }
     }
     .hero__img {
+        max-width: 400px;
         position: relative;
         z-index: 1;
-        @include mq-pc {
-            max-width: 400px;
-        }
         @include mq-sp {
             width: calc(100% - 2rem);
-            margin-top: var(--space-40);
+            margin: var(--space-40) auto 0;
         }
         &::after {
             content: "";
@@ -73,6 +72,10 @@
             top: 2rem;
             right: -2rem;
             z-index: -1;
+            @include mq-sp {
+                top: 1.5rem;
+                right: -1.5rem;
+            }
         }
         img {
             @include mq-pc {
