@@ -1,0 +1,89 @@
+---
+---
+
+<div class="intro">
+    <div class="intro__body">
+        <p class="intro__text">Hi I'm Kanako!</p>
+        <div class="intro__icon">
+            <img 
+            src="../../public/assets/icon_me.png"
+            alt=""
+            >
+        </div>
+    </div>
+</div>
+
+<style lang="scss">
+    @use '../styles/common/vars.scss' as *;  
+	@use '../styles/common/mixin.scss' as *;
+
+    .intro {
+        background-color: #fff;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: 999;
+        transition: all .8s ease-out;
+    }
+    .intro__body {
+        width: fit-content;
+        height: fit-content;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+    .intro__text {
+        font-size: var(--text-xl);
+        font-weight: 600;
+        text-align: center;
+        color: var(--green);
+        display: flex;
+        align-items: center;
+        opacity: 0;
+        transform: translateY(var(--space-16));
+        transition: transform .25s*2 ease-out .25s , opacity .25s ease-out .25s;
+
+        &::before,
+        &::after {
+            content: "";
+            width: 3px;
+            height: .8em;
+            background-color: var(--green);
+        }
+        &::before {
+            transform: rotate(-30deg);
+            margin-right: .7em;
+        }
+        &::after {
+            transform: rotate(30deg);
+            margin-left: .7em;
+        }
+    }
+    .intro__icon {
+        width: 200px;
+        height: 200px;
+        opacity: 0;
+        transform: translateY(var(--space-16));
+        transition: transform .25s*2 ease-out, opacity .25s*2 ease-out;
+    }
+    :global(.body.-showIntro .intro) {
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+        
+    }
+    :global(.body.-removeIntro .intro) {
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0% 0);
+    }
+    :global(.body.-showIntro .intro__icon) {
+        opacity: 1;
+        transform: translateY(0);
+        // transform: ;
+    }
+    :global(.body.-showIntro .intro__text) {
+        opacity: 1;
+        transform: translateY(0);
+        // transform: ;
+    }
+</style>

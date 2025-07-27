@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'; 
 import '../styles/reset.css';
+import Intro from '../components/Intro.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
@@ -10,7 +11,7 @@ import Footer from '../components/Footer.astro';
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="" href="" />
+		<link rel="icon" type="image/svg+xml" href="../../public/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 		<!-- google font -->
@@ -19,11 +20,28 @@ import Footer from '../components/Footer.astro';
 		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 	</head>
 	<body class="body">
+		<Intro />
 		<Header />
 		<slot />
 		<Footer />
 	</body>
 </html>
+
+<script is:inline>
+	if (typeof window !== 'undefined') {
+		window.addEventListener('DOMContentLoaded', () => {
+			const body = document.body;
+
+			// アニメーション開始クラス
+			body.classList.add('-showIntro');
+
+			// 2秒後にアニメーション終了クラスを追加
+			setTimeout(() => {
+				body.classList.add('-removeIntro');
+			}, 1300); // ← ここでタイミング調整可能
+		});
+	}
+</script>
 
 <style lang="scss">
 	@use '../styles/common/vars.scss' as *;  
