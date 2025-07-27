@@ -31,12 +31,10 @@ import Nav from '../components/Nav.astro'
             const menuButton = document.getElementById('menuButton');
             const body = document.querySelector('body');
     
-            // メニューボタン開閉
             menuButton?.addEventListener('click', () => {
             body?.classList.toggle('-menuOpen');
             });
     
-            // アンカーリンクをクリックしたらクラス削除
             const anchorLinks = document.querySelectorAll('.anchorList__link');
             anchorLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -56,9 +54,6 @@ import Nav from '../components/Nav.astro'
         background-color: #fff;
         border-bottom: solid 2px var(--main);
         z-index: 100;
-        @include mq-pc {
-            // position: fixed;
-        }
         @include mq-sp {
             position: fixed;
             height: fit-content;
@@ -113,17 +108,13 @@ import Nav from '../components/Nav.astro'
     }
     .menuButton__icon {
         @include mq-sp{
-            // background-color: var(--main);
             display: block;
             position: absolute;
             top: 0;
             right: 0;
             left: 0;
-            // bottom: 0;
             margin: 0 auto;
             width: 23px;
-            // height: 2px;
-            // border-radius: 7px;
             
             &::before,
             &::after{
@@ -165,8 +156,6 @@ import Nav from '../components/Nav.astro'
             background-color: #fff;
             width: 100vw;
             height: 100vh;
-            // height: fit-content;
-            // z-index: 100;
             opacity: 0;
             transition: opacity .15s;
         }
@@ -175,5 +164,4 @@ import Nav from '../components/Nav.astro'
         pointer-events: all;
         opacity: 1;
     }
-
 </style>
