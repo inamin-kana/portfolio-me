@@ -2,7 +2,7 @@ export const projectData = [
     {
         id: 'modal-01',
         state: 'finished',
-        title: 'Hospital Incident Report Application for Clinica Sagrada Famili',
+        title: 'Hospital Incident Report Application for Clinica Sagrada Familia',
         description: 'This is a real project. Developed a web application using React and Node.js for managing ticket-based reports in a hospital as part of an academic project.',
         image: {
             src: '/assets/card/thumb01.jpg',
