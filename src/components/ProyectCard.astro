@@ -13,7 +13,9 @@ import Icon from './Icon.astro';
             data-modal-trigger={project.id}
         >
             <div class="card__body">
-            <span class={`card__state -${project.state}`}>{project.state === 'finished' ? 'Finished' : 'In develop'}</span>
+            <span class={`card__state -${project.state === 'finished' ? "finished" : "develop"}`}>
+                {project.state === 'finished' ? 'Finished' : 'In progress'}
+            </span>
             <h3 class="card__title">{project.title}</h3>
             <ul class="card__tagList">
                 {project.tags.map(tag => (
@@ -25,7 +27,7 @@ import Icon from './Icon.astro';
             </ul>
             </div>
             <div class="card__thumb">
-            <img src={project.image.src} srcset={project.image.srcset} alt="" />
+                <img src={project.image.src} srcset={project.image.srcset} alt="" />
             </div>
         </a>
     
@@ -103,7 +105,7 @@ import Icon from './Icon.astro';
         }
     }
     .card__body {
-        padding: var(--space-16) var(--space-16) 0;
+        padding: var(--space-16) var(--space-8) 0;
     }
     .card__state {
         display: flex;

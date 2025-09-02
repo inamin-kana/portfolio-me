@@ -11,9 +11,9 @@ import Icon from './Icon.astro';
     <p>I love all kinds of languages, from spoken word to code!</p>
     <h3 class="titleB">Experience</h3>
     <ul class="ulList">
-        <li>Front End Developer | neu inc | Osaka, Japan | 07/2021 - 06/2025</li>
-        <li>Data Analysis & Visualization (Internship) | Analytics 4 People | Barcelona | 06/2024 - 11/2024</li>
-        <li>Japanese Language Instructor | EHLE japanese language school | Osaka, Japan | 04/2019 - 03/2021</li>
+        <li><span class="-fontBold">Front End Developer</span> | neu inc | Osaka, Japan | 08/2021 - 06/2025</li>
+        <li><span class="-fontBold">Data Analysis & Visualization (Internship)</span> | Analytics 4 People | Barcelona | 06/2024 - 11/2024</li>
+        <li><span class="-fontBold">Japanese Language Instructor</span> | EHLE japanese language school | Osaka, Japan | 04/2019 - 05/2021</li>
     </ul>
     <h3 class="titleB">Education</h3>
     <ul class="ulList">
@@ -31,18 +31,6 @@ import Icon from './Icon.astro';
             <span class="techList__name">TypeScript</span>
         </li>
         <li>
-            <Icon icon="html" size="1.5em"/>
-            <span class="techList__name">HTML</span>
-        </li>
-        <li>
-            <Icon icon="css" size="1.5em"/>
-            <span class="techList__name">CSS</span>
-        </li>
-        <li>
-            <Icon icon="scss" size="1.5em"/>
-            <span class="techList__name">Sass</span>
-        </li>
-        <li>
             <Icon icon="react" size="1.5em"/>
             <span class="techList__name">React</span>
         </li>
@@ -55,16 +43,28 @@ import Icon from './Icon.astro';
             <span class="techList__name">Vite</span>
         </li>
         <li>
+            <Icon icon="html" size="1.5em"/>
+            <span class="techList__name">HTML</span>
+        </li>
+        <li>
+            <Icon icon="css" size="1.5em"/>
+            <span class="techList__name">CSS</span>
+        </li>
+        <li>
+            <Icon icon="scss" size="1.5em"/>
+            <span class="techList__name">Sass</span>
+        </li>
+        <li>
+            <Icon icon="firebase" size="1.5em"/>
+            <span class="techList__name">Firebase</span>
+        </li>
+        <li>
             <Icon icon="node.js" size="1.5em"/>
             <span class="techList__name">Node.js</span>
         </li>
         <li>
             <Icon icon="mysql" size="1.5em"/>
             <span class="techList__name">MySQL</span>
-        </li>
-        <li>
-            <Icon icon="firebase" size="1.5em"/>
-            <span class="techList__name">Firebase</span>
         </li>
         <li>
             <Icon icon="tailwind" size="1.5em"/>
@@ -87,6 +87,11 @@ import Icon from './Icon.astro';
         }
         @include mq-sp {
             font-size: var(--text-md);
+        }
+    }
+    .ulList {
+        > li .-fontBold {
+            font-weight: 500;
         }
     }
     .techList {
