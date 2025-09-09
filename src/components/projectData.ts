@@ -18,7 +18,7 @@ export const projectData = [
         id: 'modal-02',
         state: 'In progress',
         title: 'KAKEIBO: App for managing income and expenses',
-        description: 'App to manage your daily income and expenses. You can compare your monthly income and spending, check the details, and avoid unnecessary expenses. (Language: Spanish)',
+        description: 'I developed this app while taking Udemy classes in Japanese, and I created it in Spanish.',
         image: {
             src: '/assets/card/thumb02.jpg',
             srcset: '/assets/card/thumb02.jpg 1x, /assets/card/thumb02@2x.jpg 2x',
